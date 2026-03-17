@@ -8,11 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0f1f3d;
-    --navy-mid: #1a3260;
+    --navy: #1a1a2e;
+    --navy-mid: #2d2d4e;
     --teal: #0d9e8a;
     --teal-light: #e8f7f5;
     --teal-mid: #b2e8e2;
+    --mab-orange: #e8540a;
+    --mab-orange-mid: #f47c3c;
+    --mab-orange-light: #fef0e8;
+    --mab-orange-dark: #b33d05;
     --amber: #e8a020;
     --amber-light: #fef6e4;
     --red: #d44040;
@@ -24,7 +28,7 @@
     --surface2: #f9f8f5;
     --border: #e2e0d8;
     --border-strong: #c8c5ba;
-    --text: #0f1f3d;
+    --text: #1a1a2e;
     --text-mid: #4a5568;
     --text-muted: #8a94a6;
     --font-display: 'DM Serif Display', Georgia, serif;
@@ -200,29 +204,58 @@
 
   /* SUMMARY / PRINT */
   .summary-header-strip {
-    background: var(--navy); color: #fff; border-radius: var(--radius);
-    padding: 1.5rem 2rem; margin-bottom: 1.25rem;
-    display: flex; justify-content: space-between; align-items: flex-end;
+    background: var(--mab-orange); color: #fff; border-radius: var(--radius);
+    padding: 0; margin-bottom: 1.25rem; overflow: hidden;
+  }
+  .summary-header-top {
+    padding: 1.5rem 2rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
   }
   .summary-header-strip h2 { font-family: var(--font-display); font-size: 22px; font-weight: 400; }
-  .summary-header-strip p { font-size: 13px; opacity: 0.65; margin-top: 4px; }
-  .summary-date { font-size: 12px; opacity: 0.6; }
+  .summary-header-strip p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+  .summary-date { font-size: 12px; opacity: 0.8; text-align: right; }
+  .mab-logo-bar {
+    background: var(--mab-orange-dark); padding: 10px 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .mab-logo { font-family: var(--font-display); font-size: 18px; color: #fff; letter-spacing: 0.02em; }
+  .mab-logo span { font-size: 11px; font-family: var(--font-body); font-weight: 400; opacity: 0.75; display: block; letter-spacing: 0.05em; margin-top: 1px; }
+  .mab-tagline { font-size: 11px; color: rgba(255,255,255,0.7); font-style: italic; }
 
   .summary-section { margin-bottom: 1.25rem; }
-  .summary-section-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .summary-section-title {
+    font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--mab-orange); margin-bottom: 10px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--mab-orange);
+  }
   .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .summary-cell { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px 14px; }
+  .summary-cell { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px 14px; border-left: 3px solid var(--border); }
   .summary-cell-label { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; }
   .summary-cell-value { font-size: 14px; font-weight: 500; color: var(--text); }
 
-  .reco-print-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 10px; border-left: 4px solid var(--teal); }
-  .reco-print-card.high { border-left-color: var(--red); }
-  .reco-print-card.medium { border-left-color: var(--amber); }
-  .reco-print-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .reco-print-title { font-weight: 500; font-size: 15px; color: var(--navy); }
+  .reco-print-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0; margin-bottom: 12px; overflow: hidden;
+  }
+  .reco-print-card.high .reco-print-card-header { background: #fdf0f0; border-bottom: 1px solid #f7c1c1; }
+  .reco-print-card.medium .reco-print-card-header { background: var(--mab-orange-light); border-bottom: 1px solid #f5c4a0; }
+  .reco-print-card.low .reco-print-card-header { background: var(--green-light); border-bottom: 1px solid #c0ddb0; }
+  .reco-print-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+  }
+  .reco-print-title { font-weight: 500; font-size: 16px; color: var(--navy); }
+  .reco-print-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
   .reco-print-text { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+  .reco-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+  .reco-detail-cell { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px 12px; }
+  .reco-detail-cell-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 4px; }
+  .reco-detail-cell-value { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .reco-why-box { background: var(--mab-orange-light); border-radius: var(--radius-sm); padding: 10px 12px; border-left: 3px solid var(--mab-orange); }
+  .reco-why-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mab-orange-dark); margin-bottom: 4px; font-weight: 500; }
+  .reco-why-text { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
 
-  .disclaimer { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-top: 1.25rem; }
+  .disclaimer { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 11px; color: var(--text-muted); line-height: 1.6; margin-top: 1.25rem; }
   .disclaimer strong { color: var(--text-mid); }
 
   /* SETUP BANNER */
@@ -240,8 +273,13 @@
     #page-factfind, #page-reco, #page-chat { display: none !important; }
     #page-summary { display: block !important; }
     .container { padding: 0; max-width: 100%; }
-    .card, .reco-print-card, .summary-cell { break-inside: avoid; }
-    .summary-header-strip { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .reco-print-card, .summary-cell { break-inside: avoid; }
+    .summary-header-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .mab-logo-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .reco-print-card.high .reco-print-card-header,
+    .reco-print-card.medium .reco-print-card-header,
+    .reco-print-card.low .reco-print-card-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .reco-why-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
   @media (max-width: 640px) {
@@ -441,15 +479,23 @@
   <div class="container">
     <div class="no-print btn-row" style="margin-bottom:1.25rem; justify-content:flex-end;">
       <button class="btn-secondary" onclick="goTo('chat')">&#8592; Back to advisor</button>
-      <button class="btn-primary" onclick="window.print()">&#128438; Print / Save PDF</button>
+      <button class="btn-primary" onclick="window.print()" style="background:var(--mab-orange);">&#128438; Print / Save PDF</button>
     </div>
+
     <div class="summary-header-strip">
-      <div>
-        <h2 id="print-name">Client Protection Summary</h2>
-        <p id="print-sub">Prepared by your protection adviser</p>
+      <div class="mab-logo-bar">
+        <div class="mab-logo">Mortgage Advice Bureau<span>Protection Review</span></div>
+        <div class="mab-tagline">Expert advice. Your protection.</div>
       </div>
-      <div class="summary-date" id="print-date"></div>
+      <div class="summary-header-top">
+        <div>
+          <h2 id="print-name">Client Protection Summary</h2>
+          <p id="print-sub">Prepared following your protection review meeting</p>
+        </div>
+        <div class="summary-date" id="print-date"></div>
+      </div>
     </div>
+
     <div class="summary-section">
       <div class="summary-section-title">Personal details</div>
       <div class="summary-grid" id="print-personal"></div>
@@ -463,7 +509,7 @@
       <div id="print-recos"></div>
     </div>
     <div class="disclaimer">
-      <strong>Important:</strong> This document is for discussion purposes only and does not constitute regulated financial advice. All recommendations are indicative and based on the information provided. Your adviser will source specific products and premiums from the market before any recommendation is finalised. Cover eligibility and premiums are subject to underwriting.
+      <strong>Important notice:</strong> This document is for discussion purposes only and does not constitute regulated financial advice. Mortgage Advice Bureau is a trading name. All recommendations are indicative and based on the information provided at the time of this review. Your adviser will source specific products and premiums from the whole of market before any formal recommendation is made. Cover eligibility and premiums are subject to full underwriting. You should not act on this summary alone.
     </div>
   </div>
 </div>
@@ -473,7 +519,7 @@
 // CONFIGURATION — replace with your Cloudflare Worker URL
 // e.g. https://protection-advisor.yourname.workers.dev
 // ====================================================
-const PROXY_URL = 'https://fragrant-tooth-4dc3.adamwardle7.workers.dev';
+const PROXY_URL = 'YOUR_WORKER_URL';
 // ====================================================
 
 const S = { fields: {}, clientName: '', recommendations: [], chatHistory: [], recoSummaryText: '' };
@@ -596,19 +642,25 @@ Respond ONLY with a valid JSON array — no markdown, no backticks, no explanati
     "headline": "One sentence — what cover and why for this specific client",
     "rationale": "2-3 sentences referencing their actual details — mortgage amount, dependants, employment etc.",
     "suggested_amount": "e.g. £240,000 level term over 22 years to match the mortgage",
+    "suggested_term": "e.g. 22 years to match the remaining mortgage term",
+    "why_now": "1-2 sentences on why acting now matters for this client specifically — age, health, cost of waiting",
+    "what_it_covers": "2-3 sentences explaining what this product actually does in plain English",
+    "what_happens_without": "1-2 sentences describing the real-world risk if they don't take this cover",
     "key_point": "One practical tip specific to this client"
   },
   {
     "product": "Critical Illness Cover",
     "priority": "high|medium|low",
     "recommended": true|false,
-    "headline": "...", "rationale": "...", "suggested_amount": "...", "key_point": "..."
+    "headline": "...", "rationale": "...", "suggested_amount": "...", "suggested_term": "...",
+    "why_now": "...", "what_it_covers": "...", "what_happens_without": "...", "key_point": "..."
   },
   {
     "product": "Income Protection",
     "priority": "high|medium|low",
     "recommended": true|false,
-    "headline": "...", "rationale": "...", "suggested_amount": "...", "key_point": "..."
+    "headline": "...", "rationale": "...", "suggested_amount": "...", "suggested_term": "...",
+    "why_now": "...", "what_it_covers": "...", "what_happens_without": "...", "key_point": "..."
   }
 ]
 
@@ -715,13 +767,52 @@ function buildSummaryPage() {
   document.getElementById('print-personal').innerHTML = personal.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
   const finance = [['Employment',d.employment||'—'],['Occupation',d.occupation||'—'],['Annual income',d.income?fmt(d.income):'—'],['Employer sick pay',d.sickpay||'—'],['Mortgage balance',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Monthly repayment',d.monthlyRepayment?fmt(d.monthlyRepayment):'—'],['Remaining term',d.mortgageTerm?d.mortgageTerm+' years':'—'],['Mortgage type',d.mortgageType||'—'],['Existing cover',d.existingCover||'None']];
   document.getElementById('print-finance').innerHTML = finance.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
+
   document.getElementById('print-recos').innerHTML = S.recommendations.map(r => `
     <div class="reco-print-card ${r.priority}">
-      <div class="reco-print-card-header"><div class="reco-print-title">${r.product}</div><div class="priority-badge ${r.priority}">${r.priority.charAt(0).toUpperCase()+r.priority.slice(1)} priority</div></div>
-      <p class="reco-print-text"><strong>${r.headline}</strong></p>
-      <p class="reco-print-text" style="margin-top:6px;">${r.rationale}</p>
-      <p class="reco-print-text" style="margin-top:6px;"><strong>Suggested cover:</strong> ${r.suggested_amount}</p>
-      <p class="reco-print-text"><strong>Key point:</strong> ${r.key_point}</p>
+      <div class="reco-print-card-header">
+        <div class="reco-print-title">${r.product}</div>
+        <div class="priority-badge ${r.priority}">${r.priority.charAt(0).toUpperCase()+r.priority.slice(1)} priority</div>
+      </div>
+      <div class="reco-print-body">
+        <p class="reco-print-text"><strong>${r.headline}</strong></p>
+
+        <div class="reco-why-box">
+          <div class="reco-why-label">Why this matters for you</div>
+          <div class="reco-why-text">${r.rationale}</div>
+        </div>
+
+        <div class="reco-detail-grid">
+          <div class="reco-detail-cell">
+            <div class="reco-detail-cell-label">Suggested cover amount</div>
+            <div class="reco-detail-cell-value">${r.suggested_amount || '—'}</div>
+          </div>
+          <div class="reco-detail-cell">
+            <div class="reco-detail-cell-label">Suggested term</div>
+            <div class="reco-detail-cell-value">${r.suggested_term || '—'}</div>
+          </div>
+        </div>
+
+        <div class="reco-detail-grid">
+          <div class="reco-detail-cell">
+            <div class="reco-detail-cell-label">What it covers</div>
+            <div class="reco-detail-cell-value">${r.what_it_covers || '—'}</div>
+          </div>
+          <div class="reco-detail-cell">
+            <div class="reco-detail-cell-label">Without this cover</div>
+            <div class="reco-detail-cell-value">${r.what_happens_without || '—'}</div>
+          </div>
+        </div>
+
+        <div class="reco-detail-cell" style="background:var(--surface2); border-radius:var(--radius-sm); padding:10px 12px;">
+          <div class="reco-detail-cell-label">Why act now</div>
+          <div class="reco-detail-cell-value">${r.why_now || '—'}</div>
+        </div>
+
+        <div style="font-size:12px; color:var(--text-muted); padding:8px 12px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm);">
+          <strong style="color:var(--mab-orange);">Adviser note:</strong> ${r.key_point || '—'}
+        </div>
+      </div>
     </div>`).join('');
 }
 </script>
