@@ -56,12 +56,7 @@
     top: 0;
     z-index: 100;
   }
-  .topbar-brand {
-    font-family: var(--font-display);
-    color: #fff;
-    font-size: 20px;
-    letter-spacing: 0.01em;
-  }
+  .topbar-brand { font-family: var(--font-display); color: #fff; font-size: 20px; letter-spacing: 0.01em; }
   .topbar-brand span { color: var(--teal); }
   .topbar-steps { display: flex; gap: 4px; }
   .step-pill {
@@ -78,118 +73,66 @@
   .step-pill.done { color: rgba(255,255,255,0.7); }
   .step-pill.done::before { content: '✓ '; }
 
-  /* LAYOUT */
   .page { display: none; }
   .page.active { display: block; }
   .container { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-  /* PAGE HEADERS */
   .page-header { margin-bottom: 2rem; }
   .page-header h2 { font-family: var(--font-display); font-size: 28px; color: var(--navy); font-weight: 400; }
   .page-header p { color: var(--text-mid); margin-top: 6px; font-size: 14px; }
 
-  /* CARDS */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; }
   .card-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 1.1rem; display: flex; align-items: center; gap: 8px;
   }
   .card-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* FORM ELEMENTS */
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-group label { font-size: 13px; color: var(--text-mid); font-weight: 400; }
+  .form-group label { font-size: 13px; color: var(--text-mid); }
   .form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 9px 12px;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: var(--text);
-    background: var(--surface2);
-    transition: border-color 0.15s;
-    outline: none;
+    width: 100%; padding: 9px 12px; border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 14px;
+    color: var(--text); background: var(--surface2); transition: border-color 0.15s; outline: none;
   }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--teal);
-    background: #fff;
+    border-color: var(--teal); background: #fff;
   }
 
-  /* RADIO CHIPS */
   .chip-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
   .chip {
-    padding: 6px 14px;
-    border: 1px solid var(--border-strong);
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    background: var(--surface2);
-    color: var(--text-mid);
-    transition: all 0.15s;
-    user-select: none;
+    padding: 6px 14px; border: 1px solid var(--border-strong); border-radius: 20px;
+    font-size: 13px; cursor: pointer; background: var(--surface2); color: var(--text-mid);
+    transition: all 0.15s; user-select: none;
   }
   .chip:hover { border-color: var(--teal); color: var(--teal); }
   .chip.selected { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 500; }
 
-  /* BUTTONS */
   .btn-primary {
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    padding: 12px 28px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    background: var(--navy); color: #fff; border: none; padding: 12px 28px;
+    border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 15px;
+    font-weight: 500; cursor: pointer; transition: background 0.15s, transform 0.1s;
+    display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-primary:hover { background: var(--navy-mid); }
   .btn-primary:active { transform: scale(0.98); }
   .btn-primary.teal { background: var(--teal); }
   .btn-primary.teal:hover { background: #0b8a78; }
   .btn-secondary {
-    background: transparent;
-    color: var(--text-mid);
-    border: 1px solid var(--border-strong);
-    padding: 10px 22px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.15s;
+    background: transparent; color: var(--text-mid); border: 1px solid var(--border-strong);
+    padding: 10px 22px; border-radius: var(--radius-sm); font-family: var(--font-body);
+    font-size: 14px; cursor: pointer; transition: all 0.15s;
   }
   .btn-secondary:hover { background: var(--surface2); color: var(--text); }
   .btn-row { display: flex; gap: 10px; align-items: center; margin-top: 1.5rem; }
 
-  /* RECOMMENDATIONS PAGE */
+  /* RECO PAGE */
   .reco-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 1.5rem; }
   .reco-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    border-left: 4px solid var(--teal);
-    position: relative;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.25rem 1.5rem; border-left: 4px solid var(--teal);
     animation: fadeUp 0.4s ease both;
   }
   .reco-card.high { border-left-color: var(--red); }
@@ -198,28 +141,15 @@
   @keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: none; } }
   .reco-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
   .reco-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--navy); }
-  .priority-badge {
-    font-size: 11px;
-    font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-    letter-spacing: 0.04em;
-  }
+  .priority-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; letter-spacing: 0.04em; }
   .priority-badge.high { background: var(--red-light); color: var(--red); }
   .priority-badge.medium { background: var(--amber-light); color: #9a6500; }
   .priority-badge.low { background: var(--green-light); color: var(--green); }
   .reco-text { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
-  .reco-detail { margin-top: 10px; font-size: 13px; color: var(--text-mid); }
+  .reco-detail { margin-top: 10px; font-size: 13px; color: var(--text-mid); display: flex; flex-direction: column; gap: 4px; }
   .reco-detail strong { color: var(--text); }
-  .loading-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 3rem 2rem;
-    text-align: center;
-    color: var(--text-mid);
-  }
+
+  .loading-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 3rem 2rem; text-align: center; color: var(--text-mid); }
   .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 1rem; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -231,39 +161,20 @@
   .sidebar-row:last-child { border-bottom: none; }
   .sidebar-row strong { color: var(--text); font-weight: 500; }
   .sidebar-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 12px 0 6px; }
-  .sidebar-reco {
-    font-size: 12px;
-    padding: 5px 8px;
-    border-radius: 6px;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .sidebar-reco { font-size: 12px; padding: 5px 8px; border-radius: 6px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
   .sidebar-reco.high { background: var(--red-light); color: var(--red); }
   .sidebar-reco.medium { background: var(--amber-light); color: #9a6500; }
   .sidebar-reco.low { background: var(--green-light); color: var(--green); }
   .sidebar-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-  .chat-main { display: flex; flex-direction: column; }
-  .chat-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
+  .chat-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .chat-messages { height: 420px; overflow-y: auto; padding: 1.25rem; display: flex; flex-direction: column; gap: 14px; scroll-behavior: smooth; }
   .msg { display: flex; flex-direction: column; gap: 4px; max-width: 82%; }
   .msg.user { align-self: flex-end; }
   .msg.ai { align-self: flex-start; }
   .msg-label { font-size: 11px; color: var(--text-muted); padding: 0 3px; }
   .msg.user .msg-label { text-align: right; }
-  .bubble {
-    padding: 10px 14px;
-    border-radius: var(--radius);
-    font-size: 14px;
-    line-height: 1.65;
-  }
+  .bubble { padding: 10px 14px; border-radius: var(--radius); font-size: 14px; line-height: 1.65; }
   .msg.ai .bubble { background: var(--teal-light); color: var(--text); border-radius: 2px var(--radius) var(--radius) var(--radius); }
   .msg.user .bubble { background: var(--navy); color: #fff; border-radius: var(--radius) 2px var(--radius) var(--radius); }
   .typing-bubble { display: flex; gap: 5px; align-items: center; padding: 12px 14px; }
@@ -273,109 +184,55 @@
   @keyframes blink { 0%,80%,100%{opacity:0.25} 40%{opacity:1} }
 
   .quick-prompts { padding: 10px 12px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px; background: var(--surface2); }
-  .qp-chip {
-    font-size: 12px;
-    padding: 5px 12px;
-    border: 1px solid var(--border-strong);
-    border-radius: 20px;
-    cursor: pointer;
-    background: var(--surface);
-    color: var(--text-mid);
-    transition: all 0.15s;
-  }
+  .qp-chip { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border-strong); border-radius: 20px; cursor: pointer; background: var(--surface); color: var(--text-mid); transition: all 0.15s; }
   .qp-chip:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
 
   .chat-input-row { padding: 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
   .chat-input-row textarea {
-    flex: 1;
-    resize: none;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-sm);
-    padding: 9px 12px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.5;
-    outline: none;
-    transition: border-color 0.15s;
-    min-height: 42px;
-    max-height: 120px;
+    flex: 1; resize: none; border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+    padding: 9px 12px; font-family: var(--font-body); font-size: 14px; color: var(--text);
+    line-height: 1.5; outline: none; transition: border-color 0.15s; min-height: 42px; max-height: 120px;
   }
   .chat-input-row textarea:focus { border-color: var(--teal); }
-  .chat-send {
-    background: var(--teal);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 0 18px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.15s;
-    white-space: nowrap;
-  }
+  .chat-send { background: var(--teal); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0 18px; font-family: var(--font-body); font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
   .chat-send:hover { background: #0b8a78; }
   .chat-send:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  /* PRINT SUMMARY PAGE */
+  /* SUMMARY / PRINT */
   .summary-header-strip {
-    background: var(--navy);
-    color: #fff;
-    border-radius: var(--radius);
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    background: var(--navy); color: #fff; border-radius: var(--radius);
+    padding: 1.5rem 2rem; margin-bottom: 1.25rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
   }
   .summary-header-strip h2 { font-family: var(--font-display); font-size: 22px; font-weight: 400; }
   .summary-header-strip p { font-size: 13px; opacity: 0.65; margin-top: 4px; }
   .summary-date { font-size: 12px; opacity: 0.6; }
 
   .summary-section { margin-bottom: 1.25rem; }
-  .summary-section-title {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
-  }
+  .summary-section-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
   .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .summary-cell { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px 14px; }
   .summary-cell-label { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; }
   .summary-cell-value { font-size: 14px; font-weight: 500; color: var(--text); }
 
-  .reco-print-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    margin-bottom: 10px;
-    border-left: 4px solid var(--teal);
-  }
+  .reco-print-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 10px; border-left: 4px solid var(--teal); }
   .reco-print-card.high { border-left-color: var(--red); }
   .reco-print-card.medium { border-left-color: var(--amber); }
   .reco-print-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
   .reco-print-title { font-weight: 500; font-size: 15px; color: var(--navy); }
   .reco-print-text { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
 
-  .disclaimer {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-top: 1.25rem;
-  }
+  .disclaimer { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-top: 1.25rem; }
   .disclaimer strong { color: var(--text-mid); }
 
-  /* PRINT STYLES */
+  /* SETUP BANNER */
+  .setup-banner {
+    background: #fffbeb; border: 1px solid #f5d87a; border-radius: var(--radius-sm);
+    padding: 12px 16px; font-size: 13px; color: #7a5c00; margin-bottom: 1rem;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .setup-banner strong { color: #5a4000; }
+
   @media print {
     body { background: #fff; font-size: 13px; }
     .topbar, .no-print { display: none !important; }
@@ -387,7 +244,6 @@
     .summary-header-strip { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
-  /* MOBILE */
   @media (max-width: 640px) {
     .form-grid { grid-template-columns: 1fr; }
     .chat-layout { grid-template-columns: 1fr; }
@@ -403,9 +259,9 @@
   <div class="topbar-brand">Shield<span>.</span></div>
   <div class="topbar-steps">
     <div class="step-pill active" id="pill-factfind" onclick="goTo('factfind')">1 Fact-find</div>
-    <div class="step-pill" id="pill-reco" onclick="goTo('reco')">2 Recommendations</div>
-    <div class="step-pill" id="pill-chat" onclick="goTo('chat')">3 Advisor chat</div>
-    <div class="step-pill" id="pill-summary" onclick="goTo('summary')">4 Summary</div>
+    <div class="step-pill" id="pill-reco">2 Recommendations</div>
+    <div class="step-pill" id="pill-chat">3 Advisor chat</div>
+    <div class="step-pill" id="pill-summary">4 Summary</div>
   </div>
 </div>
 
@@ -415,6 +271,11 @@
     <div class="page-header">
       <h2>Client fact-find</h2>
       <p>Complete this with your client before moving to recommendations.</p>
+    </div>
+
+    <div id="proxy-warning" class="setup-banner" style="display:none;">
+      <span>⚠️</span>
+      <span><strong>Setup needed:</strong> Open <code>index.html</code> in a text editor and replace <code>YOUR_WORKER_URL</code> near the top of the &lt;script&gt; with your Cloudflare Worker URL. See the README for instructions.</span>
     </div>
 
     <div class="card">
@@ -527,10 +388,7 @@
       <p id="reco-subheading">Tailored to your client's profile</p>
     </div>
     <div id="reco-content">
-      <div class="loading-box">
-        <div class="spinner"></div>
-        <p>Analysing client profile and generating recommendations...</p>
-      </div>
+      <div class="loading-box"><div class="spinner"></div><p>Analysing client profile and generating recommendations...</p></div>
     </div>
     <div class="btn-row no-print" id="reco-btn-row" style="display:none;">
       <button class="btn-primary teal" onclick="goToChat()">Discuss with AI advisor &rarr;</button>
@@ -561,7 +419,7 @@
       <div class="chat-main">
         <div class="chat-box">
           <div class="chat-messages" id="chat-messages"></div>
-          <div class="quick-prompts" id="quick-prompts">
+          <div class="quick-prompts">
             <div class="qp-chip" onclick="sendQuick(this)">Explain critical illness cover simply</div>
             <div class="qp-chip" onclick="sendQuick(this)">Why do I need income protection?</div>
             <div class="qp-chip" onclick="sendQuick(this)">What happens to my mortgage if I die?</div>
@@ -581,12 +439,10 @@
 <!-- PAGE 4: SUMMARY -->
 <div id="page-summary" class="page">
   <div class="container">
-
-    <div class="no-print btn-row" style="margin-bottom:1.25rem; justify-content: flex-end;">
+    <div class="no-print btn-row" style="margin-bottom:1.25rem; justify-content:flex-end;">
       <button class="btn-secondary" onclick="goTo('chat')">&#8592; Back to advisor</button>
-      <button class="btn-primary" onclick="window.print()">&#128438; Print summary</button>
+      <button class="btn-primary" onclick="window.print()">&#128438; Print / Save PDF</button>
     </div>
-
     <div class="summary-header-strip">
       <div>
         <h2 id="print-name">Client Protection Summary</h2>
@@ -594,65 +450,64 @@
       </div>
       <div class="summary-date" id="print-date"></div>
     </div>
-
     <div class="summary-section">
       <div class="summary-section-title">Personal details</div>
       <div class="summary-grid" id="print-personal"></div>
     </div>
-
     <div class="summary-section">
       <div class="summary-section-title">Employment &amp; mortgage</div>
       <div class="summary-grid" id="print-finance"></div>
     </div>
-
     <div class="summary-section">
       <div class="summary-section-title">Protection recommendations</div>
       <div id="print-recos"></div>
     </div>
-
     <div class="disclaimer">
       <strong>Important:</strong> This document is for discussion purposes only and does not constitute regulated financial advice. All recommendations are indicative and based on the information provided. Your adviser will source specific products and premiums from the market before any recommendation is finalised. Cover eligibility and premiums are subject to underwriting.
     </div>
-
   </div>
 </div>
 
 <script>
-const S = {
-  fields: {},
-  clientName: '',
-  recommendations: [],
-  chatHistory: [],
-  recoSummaryText: ''
-};
+// ====================================================
+// CONFIGURATION — replace with your Cloudflare Worker URL
+// e.g. https://protection-advisor.yourname.workers.dev
+// ====================================================
+const PROXY_URL = 'YOUR_WORKER_URL';
+// ====================================================
 
-// ---- NAVIGATION ----
+const S = { fields: {}, clientName: '', recommendations: [], chatHistory: [], recoSummaryText: '' };
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (PROXY_URL === 'YOUR_WORKER_URL') {
+    document.getElementById('proxy-warning').style.display = 'flex';
+  }
+});
+
 function goTo(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
-  document.querySelectorAll('.step-pill').forEach(p => {
-    p.classList.remove('active', 'done');
-  });
   const order = ['factfind','reco','chat','summary'];
   const idx = order.indexOf(page);
   order.forEach((p, i) => {
     const pill = document.getElementById('pill-' + p);
+    if (!pill) return;
+    pill.classList.remove('active','done');
     if (i < idx) pill.classList.add('done');
     else if (i === idx) pill.classList.add('active');
   });
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
-// ---- FORM HELPERS ----
 function pick(group, value, el) {
   document.querySelectorAll('#' + group + ' .chip').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   S.fields[group] = value;
 }
+
 function val(id) { return (document.getElementById(id)?.value || '').trim(); }
 function fmt(n) { return n ? '£' + Number(n).toLocaleString() : '—'; }
 
-// ---- COLLECT CLIENT DATA ----
 function collectData() {
   const first = val('firstName'), last = val('lastName');
   S.clientName = [first, last].filter(Boolean).join(' ') || 'Client';
@@ -676,40 +531,42 @@ function collectData() {
   };
 }
 
-// ---- BUILD SYSTEM PROMPT ----
 function buildSystem() {
   const d = S.data;
   return `You are a professional mortgage protection adviser assistant. You communicate in plain English — warm, clear, and jargon-free. You are speaking with a client during an advice meeting.
 
 CLIENT PROFILE:
-- Name: ${d.name}
-- Age: ${d.age || 'not provided'}
-- Smoker: ${d.smoker}
-- Marital status: ${d.marital}
-- Dependants: ${d.dependants}
-- Employment: ${d.employment}, occupation: ${d.occupation || 'not specified'}
-- Annual income: £${d.income || 'not provided'}
+- Name: ${d.name}, Age: ${d.age || 'not provided'}
+- Smoker: ${d.smoker}, Marital: ${d.marital}, Dependants: ${d.dependants}
+- Employment: ${d.employment} (${d.occupation || 'not specified'}), Income: £${d.income || 'not provided'}/yr
 - Employer sick pay: ${d.sickpay}
-- Mortgage balance: £${d.mortgageBalance || 'not provided'}
-- Monthly repayment: £${d.monthlyRepayment || 'not provided'}
-- Mortgage term: ${d.mortgageTerm || 'not provided'} years (${d.mortgageType})
+- Mortgage: £${d.mortgageBalance || 'not provided'} balance, £${d.monthlyRepayment || 'not provided'}/month, ${d.mortgageTerm || 'not provided'} yrs (${d.mortgageType})
 - Existing cover: ${d.existingCover}
-- Health notes: ${d.health || 'none known'}
-- Adviser notes: ${d.notes || 'none'}
+- Health: ${d.health || 'none known'}
+- Notes: ${d.notes || 'none'}
 
-CURRENT RECOMMENDATIONS MADE:
-${S.recoSummaryText || 'See earlier recommendations.'}
+RECOMMENDATIONS MADE:
+${S.recoSummaryText}
 
 YOUR ROLE:
-- Answer questions about protection products clearly and in plain English
-- Personalise every explanation to this client's specific circumstances
-- Products you advise on: life insurance, critical illness cover, income protection
+- Answer questions about life insurance, critical illness cover, and income protection
+- Personalise every answer to this client's specific circumstances
 - Never quote specific premiums — these come from sourcing tools
-- Keep answers concise (3–6 sentences) unless the client asks for more detail
-- Be reassuring and human — many clients find insurance confusing or anxiety-inducing`;
+- Keep answers to 3–6 sentences unless asked for more detail
+- Be warm and reassuring — many clients find insurance confusing`;
 }
 
-// ---- RECOMMENDATIONS ----
+async function callAI(messages, system) {
+  const body = { model: 'claude-sonnet-4-20250514', max_tokens: 1000, messages };
+  if (system) body.system = system;
+  const res = await fetch(PROXY_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  return res.json();
+}
+
 async function runRecommendations() {
   collectData();
   goTo('reco');
@@ -718,104 +575,83 @@ async function runRecommendations() {
   document.getElementById('reco-btn-row').style.display = 'none';
 
   const d = S.data;
-  const prompt = `You are a mortgage protection adviser. Based on this client profile, provide specific recommendations for life insurance, critical illness cover, and income protection.
+  const prompt = `You are a mortgage protection adviser. Analyse this client and provide recommendations for life insurance, critical illness cover, and income protection.
 
 CLIENT:
-- Name: ${d.name}, Age: ${d.age || 'unknown'}
-- Smoker: ${d.smoker}, Marital: ${d.marital}, Dependants: ${d.dependants}
-- Employment: ${d.employment} (${d.occupation || 'no occupation given'}), Income: £${d.income || 'unknown'}/yr
+- Name: ${d.name}, Age: ${d.age || 'unknown'}, Smoker: ${d.smoker}
+- Marital: ${d.marital}, Dependants: ${d.dependants}
+- Employment: ${d.employment} (${d.occupation || 'none given'}), Income: £${d.income || 'unknown'}/yr
 - Employer sick pay: ${d.sickpay}
-- Mortgage: £${d.mortgageBalance || 'unknown'} balance, £${d.monthlyRepayment || 'unknown'}/month, ${d.mortgageTerm || 'unknown'} years remaining, ${d.mortgageType}
+- Mortgage: £${d.mortgageBalance || 'unknown'} balance, £${d.monthlyRepayment || 'unknown'}/month, ${d.mortgageTerm || 'unknown'} yrs, ${d.mortgageType}
 - Existing cover: ${d.existingCover}
 - Health: ${d.health || 'none known'}
 - Notes: ${d.notes || 'none'}
 
-Respond ONLY with a JSON array (no markdown, no backticks, no preamble) with this exact structure:
+Respond ONLY with a valid JSON array — no markdown, no backticks, no explanation before or after. Use this exact structure:
 [
   {
     "product": "Life Insurance",
     "priority": "high",
     "recommended": true,
-    "headline": "One sentence — what cover and why",
-    "rationale": "2-3 sentences explaining why this client specifically needs this, referencing their actual details",
-    "suggested_amount": "Suggested sum assured or term, e.g. £240,000 level term over 22 years",
-    "key_point": "One practical tip or important consideration for this client"
+    "headline": "One sentence — what cover and why for this specific client",
+    "rationale": "2-3 sentences referencing their actual details — mortgage amount, dependants, employment etc.",
+    "suggested_amount": "e.g. £240,000 level term over 22 years to match the mortgage",
+    "key_point": "One practical tip specific to this client"
   },
   {
     "product": "Critical Illness Cover",
     "priority": "high|medium|low",
     "recommended": true|false,
-    "headline": "...",
-    "rationale": "...",
-    "suggested_amount": "...",
-    "key_point": "..."
+    "headline": "...", "rationale": "...", "suggested_amount": "...", "key_point": "..."
   },
   {
     "product": "Income Protection",
     "priority": "high|medium|low",
     "recommended": true|false,
-    "headline": "...",
-    "rationale": "...",
-    "suggested_amount": "...",
-    "key_point": "..."
+    "headline": "...", "rationale": "...", "suggested_amount": "...", "key_point": "..."
   }
 ]
 
-Priority guide: high = essential for this client, medium = strongly advisable, low = worth considering.
-Be specific to this client's numbers and situation.`;
+Priority: high = essential, medium = strongly advisable, low = worth considering. Be specific to the client's numbers.`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-    const data = await res.json();
-    let text = (data.content?.[0]?.text || '').replace(/```json|```/g,'').trim();
+    const data = await callAI([{ role: 'user', content: prompt }]);
+    let text = (data.content?.[0]?.text || '').replace(/```json|```/g, '').trim();
     S.recommendations = JSON.parse(text);
-    S.recoSummaryText = S.recommendations.map(r => `${r.product} (${r.priority} priority): ${r.headline}`).join('\n');
+    S.recoSummaryText = S.recommendations.map(r => `${r.product} (${r.priority}): ${r.headline}`).join('\n');
     renderRecommendations();
+    buildSummaryPage();
   } catch(e) {
-    document.getElementById('reco-content').innerHTML = '<div class="loading-box"><p style="color:#d44040;">Could not generate recommendations. Please check your connection and try again.</p></div>';
+    document.getElementById('reco-content').innerHTML = `<div class="loading-box"><p style="color:var(--red);">Could not generate recommendations. ${PROXY_URL === 'YOUR_WORKER_URL' ? 'Your Worker URL has not been set — see the setup banner on the fact-find page.' : 'Please check your connection and try again.'}</p></div>`;
   }
 }
 
 function renderRecommendations() {
   const html = S.recommendations.map((r, i) => `
-    <div class="reco-card ${r.priority}" style="animation-delay:${i * 0.1}s">
+    <div class="reco-card ${r.priority}" style="animation-delay:${i*0.1}s">
       <div class="reco-header">
         <div class="reco-title">${r.product}</div>
         <div class="priority-badge ${r.priority}">${r.priority.charAt(0).toUpperCase()+r.priority.slice(1)} priority</div>
       </div>
       <p class="reco-text"><strong>${r.headline}</strong></p>
       <p class="reco-text" style="margin-top:8px;">${r.rationale}</p>
-      <div class="reco-detail" style="margin-top:10px; display:flex; flex-direction:column; gap:4px;">
+      <div class="reco-detail">
         <div><strong>Suggested cover:</strong> ${r.suggested_amount}</div>
         <div><strong>Key point:</strong> ${r.key_point}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
   document.getElementById('reco-content').innerHTML = '<div class="reco-grid">' + html + '</div>';
   document.getElementById('reco-subheading').textContent = 'Recommendations for ' + S.clientName;
   document.getElementById('reco-btn-row').style.display = 'flex';
-  buildSummaryPage();
 }
 
-// ---- CHAT ----
 function goToChat() {
   buildChatSidebar();
   S.chatHistory = [];
-  const messagesEl = document.getElementById('chat-messages');
-  messagesEl.innerHTML = '';
-
+  document.getElementById('chat-messages').innerHTML = '';
   const d = S.data;
   const recoList = S.recommendations.map(r => `${r.product} (${r.priority} priority)`).join(', ');
-  const opening = `Hi ${d.name ? d.name.split(' ')[0] : 'there'}! I've reviewed your details and our recommendations. Based on your situation — ${d.dependants && d.dependants !== 'None' ? d.dependants + ' dependant(s), ' : ''}a ${fmt(d.mortgageBalance)} mortgage${d.employment === 'Self-employed' ? ', and being self-employed' : ''} — we've identified: ${recoList}. What would you like to explore first?`;
-
+  const opening = `Hi ${d.name ? d.name.split(' ')[0] : 'there'}! I've reviewed your details and the recommendations. Based on your situation${d.dependants && d.dependants !== 'None' ? ' — including your '+d.dependants+' dependant(s)' : ''}${d.mortgageBalance ? ' and your £'+Number(d.mortgageBalance).toLocaleString()+' mortgage' : ''}, we've identified three areas: ${recoList}. What would you like to understand better?`;
   addChatMsg('ai', opening);
   goTo('chat');
 }
@@ -823,22 +659,10 @@ function goToChat() {
 function buildChatSidebar() {
   const d = S.data;
   document.getElementById('sidebar-name').textContent = S.clientName;
-
-  const details = [
-    ['Age', d.age || '—'],
-    ['Income', d.income ? fmt(d.income) : '—'],
-    ['Employment', d.employment || '—'],
-    ['Mortgage', d.mortgageBalance ? fmt(d.mortgageBalance) : '—'],
-    ['Sick pay', d.sickpay || '—'],
-    ['Existing cover', d.existingCover || 'None']
-  ];
-  document.getElementById('sidebar-details').innerHTML = details.map(([k,v]) =>
-    `<div class="sidebar-row"><span>${k}</span><strong>${v}</strong></div>`
-  ).join('');
-
+  const details = [['Age',d.age||'—'],['Income',d.income?fmt(d.income):'—'],['Employment',d.employment||'—'],['Mortgage',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Sick pay',d.sickpay||'—'],['Existing cover',d.existingCover||'None']];
+  document.getElementById('sidebar-details').innerHTML = details.map(([k,v]) => `<div class="sidebar-row"><span>${k}</span><strong>${v}</strong></div>`).join('');
   document.getElementById('sidebar-recos').innerHTML = S.recommendations.map(r =>
-    `<div class="sidebar-reco ${r.priority}"><div class="sidebar-dot"></div>${r.product}</div>`
-  ).join('');
+    `<div class="sidebar-reco ${r.priority}"><div class="sidebar-dot"></div>${r.product}</div>`).join('');
 }
 
 function addChatMsg(role, text) {
@@ -846,8 +670,7 @@ function addChatMsg(role, text) {
   const el = document.getElementById('chat-messages');
   const div = document.createElement('div');
   div.className = 'msg ' + role;
-  const label = role === 'ai' ? 'Protection advisor' : (S.clientName || 'Client');
-  div.innerHTML = `<div class="msg-label">${label}</div><div class="bubble">${text.replace(/\n/g,'<br>')}</div>`;
+  div.innerHTML = `<div class="msg-label">${role==='ai'?'Protection advisor':S.clientName}</div><div class="bubble">${text.replace(/\n/g,'<br>')}</div>`;
   el.appendChild(div);
   el.scrollTop = el.scrollHeight;
 }
@@ -869,24 +692,11 @@ async function sendChat(text) {
   addChatMsg('user', msg);
   document.getElementById('chat-send').disabled = true;
   showTyping();
-
-  const messages = S.chatHistory.slice(0, -1).concat([{ role:'user', content: msg }]);
-
+  const messages = S.chatHistory.filter(m => m.role === 'user' || m.role === 'assistant').slice(-10);
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: buildSystem(),
-        messages: messages
-      })
-    });
-    const data = await res.json();
+    const data = await callAI(messages, buildSystem());
     hideTyping();
-    const reply = data.content?.[0]?.text || 'Sorry, something went wrong. Please try again.';
-    addChatMsg('ai', reply);
+    addChatMsg('ai', data.content?.[0]?.text || 'Sorry, something went wrong. Please try again.');
   } catch(e) {
     hideTyping();
     addChatMsg('ai', 'Connection error — please try again.');
@@ -897,52 +707,22 @@ async function sendChat(text) {
 function sendQuick(el) { sendChat(el.textContent); }
 function chatKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); } }
 
-// ---- PRINT SUMMARY ----
 function buildSummaryPage() {
   const d = S.data;
   document.getElementById('print-name').textContent = S.clientName + ' — Protection Summary';
-  document.getElementById('print-sub').textContent = 'Prepared by your protection adviser';
-  document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'});
-
-  const personal = [
-    ['Name', d.name || '—'],
-    ['Age', d.age || '—'],
-    ['Smoker', d.smoker || '—'],
-    ['Marital status', d.marital || '—'],
-    ['Dependants', d.dependants || '—'],
-    ['Health notes', d.health || 'None known']
-  ];
-  document.getElementById('print-personal').innerHTML = personal.map(([k,v]) =>
-    `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`
-  ).join('');
-
-  const finance = [
-    ['Employment', d.employment || '—'],
-    ['Occupation', d.occupation || '—'],
-    ['Annual income', d.income ? fmt(d.income) : '—'],
-    ['Employer sick pay', d.sickpay || '—'],
-    ['Mortgage balance', d.mortgageBalance ? fmt(d.mortgageBalance) : '—'],
-    ['Monthly repayment', d.monthlyRepayment ? fmt(d.monthlyRepayment) : '—'],
-    ['Remaining term', d.mortgageTerm ? d.mortgageTerm + ' years' : '—'],
-    ['Mortgage type', d.mortgageType || '—'],
-    ['Existing cover', d.existingCover || 'None']
-  ];
-  document.getElementById('print-finance').innerHTML = finance.map(([k,v]) =>
-    `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`
-  ).join('');
-
+  document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const personal = [['Name',d.name||'—'],['Age',d.age||'—'],['Smoker',d.smoker||'—'],['Marital status',d.marital||'—'],['Dependants',d.dependants||'—'],['Health notes',d.health||'None known']];
+  document.getElementById('print-personal').innerHTML = personal.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
+  const finance = [['Employment',d.employment||'—'],['Occupation',d.occupation||'—'],['Annual income',d.income?fmt(d.income):'—'],['Employer sick pay',d.sickpay||'—'],['Mortgage balance',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Monthly repayment',d.monthlyRepayment?fmt(d.monthlyRepayment):'—'],['Remaining term',d.mortgageTerm?d.mortgageTerm+' years':'—'],['Mortgage type',d.mortgageType||'—'],['Existing cover',d.existingCover||'None']];
+  document.getElementById('print-finance').innerHTML = finance.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
   document.getElementById('print-recos').innerHTML = S.recommendations.map(r => `
     <div class="reco-print-card ${r.priority}">
-      <div class="reco-print-card-header">
-        <div class="reco-print-title">${r.product}</div>
-        <div class="priority-badge ${r.priority}">${r.priority.charAt(0).toUpperCase()+r.priority.slice(1)} priority</div>
-      </div>
+      <div class="reco-print-card-header"><div class="reco-print-title">${r.product}</div><div class="priority-badge ${r.priority}">${r.priority.charAt(0).toUpperCase()+r.priority.slice(1)} priority</div></div>
       <p class="reco-print-text"><strong>${r.headline}</strong></p>
       <p class="reco-print-text" style="margin-top:6px;">${r.rationale}</p>
       <p class="reco-print-text" style="margin-top:6px;"><strong>Suggested cover:</strong> ${r.suggested_amount}</p>
       <p class="reco-print-text"><strong>Key point:</strong> ${r.key_point}</p>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 </script>
 </body>
