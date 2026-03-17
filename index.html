@@ -466,6 +466,7 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
     <div class="card">
       <div class="section-label">Mortgage details</div>
       <div class="form-grid">
+        <div class="form-group"><label>Property value (£)</label><input type="number" id="propertyValue" placeholder="e.g. 320000"></div>
         <div class="form-group"><label>Outstanding balance (£)</label><input type="number" id="mortgageBalance" placeholder="e.g. 240000"></div>
         <div class="form-group"><label>Monthly repayment (£)</label><input type="number" id="monthlyRepayment" placeholder="e.g. 1100"></div>
         <div class="form-group"><label>Remaining term (years)</label><input type="number" id="mortgageTerm" placeholder="e.g. 22"></div>
@@ -474,6 +475,7 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
           <div class="chip-group" id="mortgageType">
             <div class="chip" onclick="pick('mortgageType','Repayment',this)">Repayment</div>
             <div class="chip" onclick="pick('mortgageType','Interest-only',this)">Interest-only</div>
+            <div class="chip" onclick="pick('mortgageType','Shared Ownership',this)">Shared Ownership</div>
           </div>
         </div>
       </div>
@@ -485,12 +487,12 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
         <div class="form-group full">
           <label>Existing protection policies</label>
           <div class="chip-group" id="existingCover">
-            <div class="chip" onclick="pick('existingCover','None',this)">None</div>
-            <div class="chip" onclick="pick('existingCover','Life insurance only',this)">Life insurance</div>
-            <div class="chip" onclick="pick('existingCover','Life + critical illness',this)">Life + critical illness</div>
-            <div class="chip" onclick="pick('existingCover','Income protection',this)">Income protection</div>
-            <div class="chip" onclick="pick('existingCover','Family income benefit',this)">Family income benefit</div>
-            <div class="chip" onclick="pick('existingCover','Full suite',this)">Full suite</div>
+            <div class="chip" onclick="pickMulti('existingCover','None',this)">None</div>
+            <div class="chip" onclick="pickMulti('existingCover','Life insurance',this)">Life insurance</div>
+            <div class="chip" onclick="pickMulti('existingCover','Life + critical illness',this)">Life + critical illness</div>
+            <div class="chip" onclick="pickMulti('existingCover','Income protection',this)">Income protection</div>
+            <div class="chip" onclick="pickMulti('existingCover','Family income benefit',this)">Family income benefit</div>
+            <div class="chip" onclick="pickMulti('existingCover','Full suite',this)">Full suite</div>
           </div>
         </div>
         <div class="form-group full"><label>Known health conditions or lifestyle factors</label><input type="text" id="health" placeholder="e.g. Controlled hypertension, none known, family history of cancer..."></div>
@@ -656,6 +658,34 @@ function pick(group, value, el) {
   S.fields[group] = value;
 }
 
+function pickMulti(group, value, el) {
+  if (!S.multiFields) S.multiFields = {};
+  if (!S.multiFields[group]) S.multiFields[group] = new Set();
+  const set = S.multiFields[group];
+  if (value === 'None') {
+    set.clear();
+    document.querySelectorAll('#' + group + ' .chip').forEach(c => c.classList.remove('selected'));
+    set.add('None');
+    el.classList.add('selected');
+  } else {
+    const noneChip = [...document.querySelectorAll('#' + group + ' .chip')].find(c => c.textContent === 'None');
+    if (noneChip) noneChip.classList.remove('selected');
+    set.delete('None');
+    if (set.has(value)) {
+      set.delete(value);
+      el.classList.remove('selected');
+    } else {
+      set.add(value);
+      el.classList.add('selected');
+    }
+    if (set.size === 0) {
+      set.add('None');
+      if (noneChip) noneChip.classList.add('selected');
+    }
+  }
+  S.fields[group] = [...set].join(', ');
+}
+
 function val(id) { return (document.getElementById(id)?.value || '').trim(); }
 function fmt(n) { return n ? '£' + Number(n).toLocaleString() : '—'; }
 
@@ -705,6 +735,7 @@ function collectData() {
     occupation: val('occupation'), income: val('income'),
     sickpay: S.fields.sickpay || 'not specified',
     mortgageBalance: val('mortgageBalance'),
+    propertyValue: val('propertyValue'),
     monthlyRepayment: val('monthlyRepayment'),
     mortgageTerm: val('mortgageTerm'),
     mortgageType: S.fields.mortgageType || 'not specified',
@@ -740,7 +771,7 @@ CLIENT PROFILE:
 - Smoker: ${d.smoker}, Marital: ${d.marital}, Dependants: ${d.dependants}
 - Employment: ${d.employment} (${d.occupation || 'not specified'}), Income: £${d.income || 'not provided'}/yr
 - Employer sick pay: ${d.sickpay}
-- Mortgage: £${d.mortgageBalance || 'not provided'} balance, £${d.monthlyRepayment || 'not provided'}/month, ${d.mortgageTerm || 'not provided'} yrs (${d.mortgageType})
+- Mortgage: £${d.mortgageBalance || 'not provided'} balance, property value £${d.propertyValue || 'not provided'}, £${d.monthlyRepayment || 'not provided'}/month, ${d.mortgageTerm || 'not provided'} yrs (${d.mortgageType})
 - Existing cover: ${d.existingCover}
 - Health: ${d.health || 'none known'}
 - Notes: ${d.notes || 'none'}${joint}
@@ -784,7 +815,7 @@ CLIENT:
 - Marital: ${d.marital}, Dependants: ${d.dependants}
 - Employment: ${d.employment} (${d.occupation||'none given'}), Income: £${d.income||'unknown'}/yr
 - Employer sick pay: ${d.sickpay}
-- Mortgage: £${d.mortgageBalance||'unknown'} balance, £${d.monthlyRepayment||'unknown'}/month, ${d.mortgageTerm||'unknown'} yrs, ${d.mortgageType}
+- Mortgage: £${d.mortgageBalance||'unknown'} balance, property value £${d.propertyValue||'unknown'}, £${d.monthlyRepayment||'unknown'}/month, ${d.mortgageTerm||'unknown'} yrs, ${d.mortgageType}
 - Existing cover: ${d.existingCover}
 - Health: ${d.health||'none known'}
 - Notes: ${d.notes||'none'}${d2str}${jointNote}
@@ -918,7 +949,7 @@ function buildSummaryPage() {
     jointEl.style.display = 'none';
   }
 
-  const finance = [['Employment',d.employment||'—'],['Occupation',d.occupation||'—'],['Annual income',d.income?fmt(d.income):'—'],['Employer sick pay',d.sickpay||'—'],['Mortgage balance',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Monthly repayment',d.monthlyRepayment?fmt(d.monthlyRepayment):'—'],['Remaining term',d.mortgageTerm?d.mortgageTerm+' years':'—'],['Mortgage type',d.mortgageType||'—'],['Existing cover',d.existingCover||'None']];
+  const finance = [['Employment',d.employment||'—'],['Occupation',d.occupation||'—'],['Annual income',d.income?fmt(d.income):'—'],['Employer sick pay',d.sickpay||'—'],['Property value',d.propertyValue?fmt(d.propertyValue):'—'],['Mortgage balance',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Monthly repayment',d.monthlyRepayment?fmt(d.monthlyRepayment):'—'],['Remaining term',d.mortgageTerm?d.mortgageTerm+' years':'—'],['Mortgage type',d.mortgageType||'—'],['Existing cover',d.existingCover||'None']];
   document.getElementById('print-finance').innerHTML = finance.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
 
   document.getElementById('print-recos').innerHTML = S.recommendations.map(r => `
