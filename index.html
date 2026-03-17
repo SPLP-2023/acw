@@ -285,6 +285,108 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
       </div>
     </div>
 
+    <!-- JOINT APPLICATION TOGGLE -->
+    <div class="card" id="joint-toggle-card" style="border-top-color: var(--navy); background: var(--surface2);">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <div style="font-weight:500; font-size:14px; color:var(--navy);">Joint application?</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Add a second applicant to the fact-find and recommendations</div>
+        </div>
+        <button class="btn-secondary" id="joint-toggle-btn" onclick="toggleJoint()" style="white-space:nowrap;">+ Add second applicant</button>
+      </div>
+    </div>
+
+    <!-- JOINT APPLICANT SECTION (hidden by default) -->
+    <div id="joint-section" style="display:none;">
+      <div class="card" style="border-top-color: var(--navy);">
+        <div class="section-label" style="color:var(--navy);">Second applicant</div>
+        <div class="form-grid">
+          <div class="form-group"><label>First name</label><input type="text" id="firstName2" placeholder="e.g. James"></div>
+          <div class="form-group"><label>Last name</label><input type="text" id="lastName2" placeholder="e.g. Thompson"></div>
+          <div class="form-group"><label>Age</label><input type="number" id="age2" placeholder="e.g. 36" min="18" max="85"></div>
+          <div class="form-group">
+            <label>Smoker status</label>
+            <div class="chip-group" id="smoker2">
+              <div class="chip" onclick="pick('smoker2','Non-smoker',this)">Non-smoker</div>
+              <div class="chip" onclick="pick('smoker2','Ex-smoker',this)">Ex-smoker</div>
+              <div class="chip" onclick="pick('smoker2','Smoker',this)">Smoker</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Employment type</label>
+            <div class="chip-group" id="employment2">
+              <div class="chip" onclick="pick('employment2','Employed',this)">Employed</div>
+              <div class="chip" onclick="pick('employment2','Self-employed',this)">Self-employed</div>
+              <div class="chip" onclick="pick('employment2','Director',this)">Director</div>
+              <div class="chip" onclick="pick('employment2','Unemployed',this)">Unemployed</div>
+              <div class="chip" onclick="pick('employment2','Retired',this)">Retired</div>
+            </div>
+          </div>
+          <div class="form-group"><label>Occupation</label>
+            <select id="occupationSelect2" onchange="handleOccupationSelect2(this)">
+              <option value="">— Select occupation —</option>
+              <optgroup label="Professional &amp; Management">
+                <option>Accountant</option><option>Architect</option><option>Business analyst</option>
+                <option>Company director</option><option>Engineer</option><option>Financial adviser</option>
+                <option>HR manager</option><option>IT manager</option><option>Lawyer / Solicitor</option>
+                <option>Marketing manager</option><option>Project manager</option><option>Surveyor</option>
+              </optgroup>
+              <optgroup label="Healthcare">
+                <option>Dentist</option><option>Doctor / GP</option><option>Nurse</option>
+                <option>Paramedic</option><option>Pharmacist</option><option>Physiotherapist</option>
+                <option>Surgeon</option><option>Veterinarian</option>
+              </optgroup>
+              <optgroup label="Trades &amp; Skilled">
+                <option>Builder / Construction worker</option><option>Carpenter</option>
+                <option>Electrician</option><option>Mechanic</option><option>Painter &amp; decorator</option>
+                <option>Plasterer</option><option>Plumber</option><option>Roofer</option>
+              </optgroup>
+              <optgroup label="Education">
+                <option>Head teacher</option><option>Lecturer</option><option>Teaching assistant</option>
+                <option>Teacher</option><option>University professor</option>
+              </optgroup>
+              <optgroup label="Public Sector &amp; Emergency Services">
+                <option>Armed forces</option><option>Civil servant</option><option>Firefighter</option>
+                <option>Police officer</option><option>Prison officer</option><option>Social worker</option>
+              </optgroup>
+              <optgroup label="Retail &amp; Hospitality">
+                <option>Bar / Restaurant manager</option><option>Chef</option><option>Customer service advisor</option>
+                <option>Delivery driver</option><option>Retail manager</option><option>Shop assistant</option>
+                <option>Warehouse operative</option>
+              </optgroup>
+              <optgroup label="Finance &amp; Property">
+                <option>Estate agent</option><option>Insurance broker</option><option>Mortgage adviser</option>
+                <option>Mortgage broker</option><option>Property developer</option>
+              </optgroup>
+              <optgroup label="Creative &amp; Media">
+                <option>Actor / Performer</option><option>Designer</option><option>Journalist</option>
+                <option>Photographer</option><option>Software developer</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option>Carer</option><option>Cleaner</option><option>Farmer</option>
+                <option>Homemaker</option><option>Lorry / HGV driver</option><option>Security guard</option>
+                <option value="__custom__">Other — type below</option>
+              </optgroup>
+            </select>
+            <input type="text" id="occupationCustom2" placeholder="Enter occupation..." style="display:none; margin-top:6px;">
+            <input type="hidden" id="occupation2">
+          </div>
+          <div class="form-group"><label>Annual gross income (£)</label><input type="number" id="income2" placeholder="e.g. 38000"></div>
+          <div class="form-group">
+            <label>Employer sick pay</label>
+            <div class="chip-group" id="sickpay2">
+              <div class="chip" onclick="pick('sickpay2','None',this)">None</div>
+              <div class="chip" onclick="pick('sickpay2','1 month',this)">1 month</div>
+              <div class="chip" onclick="pick('sickpay2','3 months',this)">3 months</div>
+              <div class="chip" onclick="pick('sickpay2','6 months',this)">6 months</div>
+              <div class="chip" onclick="pick('sickpay2','12+ months',this)">12+ months</div>
+            </div>
+          </div>
+          <div class="form-group full"><label>Known health conditions or lifestyle factors</label><input type="text" id="health2" placeholder="e.g. None known, controlled diabetes..."></div>
+        </div>
+      </div>
+    </div>
+
     <div class="card">
       <div class="section-label">Employment &amp; income</div>
       <div class="form-grid">
@@ -294,10 +396,59 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
             <div class="chip" onclick="pick('employment','Employed',this)">Employed</div>
             <div class="chip" onclick="pick('employment','Self-employed',this)">Self-employed</div>
             <div class="chip" onclick="pick('employment','Director',this)">Director</div>
+            <div class="chip" onclick="pick('employment','Unemployed',this)">Unemployed</div>
             <div class="chip" onclick="pick('employment','Retired',this)">Retired</div>
           </div>
         </div>
-        <div class="form-group"><label>Occupation</label><input type="text" id="occupation" placeholder="e.g. Teacher"></div>
+        <div class="form-group"><label>Occupation</label>
+          <select id="occupationSelect" onchange="handleOccupationSelect(this)">
+            <option value="">— Select occupation —</option>
+            <optgroup label="Professional &amp; Management">
+              <option>Accountant</option><option>Architect</option><option>Business analyst</option>
+              <option>Company director</option><option>Engineer</option><option>Financial adviser</option>
+              <option>HR manager</option><option>IT manager</option><option>Lawyer / Solicitor</option>
+              <option>Marketing manager</option><option>Project manager</option><option>Surveyor</option>
+            </optgroup>
+            <optgroup label="Healthcare">
+              <option>Dentist</option><option>Doctor / GP</option><option>Nurse</option>
+              <option>Paramedic</option><option>Pharmacist</option><option>Physiotherapist</option>
+              <option>Surgeon</option><option>Veterinarian</option>
+            </optgroup>
+            <optgroup label="Trades &amp; Skilled">
+              <option>Builder / Construction worker</option><option>Carpenter</option>
+              <option>Electrician</option><option>Mechanic</option><option>Painter &amp; decorator</option>
+              <option>Plasterer</option><option>Plumber</option><option>Roofer</option>
+            </optgroup>
+            <optgroup label="Education">
+              <option>Head teacher</option><option>Lecturer</option><option>Teaching assistant</option>
+              <option>Teacher</option><option>University professor</option>
+            </optgroup>
+            <optgroup label="Public Sector &amp; Emergency Services">
+              <option>Armed forces</option><option>Civil servant</option><option>Firefighter</option>
+              <option>Police officer</option><option>Prison officer</option><option>Social worker</option>
+            </optgroup>
+            <optgroup label="Retail &amp; Hospitality">
+              <option>Bar / Restaurant manager</option><option>Chef</option><option>Customer service advisor</option>
+              <option>Delivery driver</option><option>Retail manager</option><option>Shop assistant</option>
+              <option>Warehouse operative</option>
+            </optgroup>
+            <optgroup label="Finance &amp; Property">
+              <option>Estate agent</option><option>Insurance broker</option><option>Mortgage adviser</option>
+              <option>Mortgage broker</option><option>Property developer</option>
+            </optgroup>
+            <optgroup label="Creative &amp; Media">
+              <option>Actor / Performer</option><option>Designer</option><option>Journalist</option>
+              <option>Photographer</option><option>Software developer</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>Carer</option><option>Cleaner</option><option>Farmer</option>
+              <option>Homemaker</option><option>Lorry / HGV driver</option><option>Security guard</option>
+              <option value="__custom__">Other — type below</option>
+            </optgroup>
+          </select>
+          <input type="text" id="occupationCustom" placeholder="Enter occupation..." style="display:none; margin-top:6px;">
+          <input type="hidden" id="occupation">
+        </div>
         <div class="form-group"><label>Annual gross income (£)</label><input type="number" id="income" placeholder="e.g. 45000"></div>
         <div class="form-group">
           <label>Employer sick pay</label>
@@ -462,6 +613,10 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
       <div class="summary-section-title">Personal details</div>
       <div class="summary-grid" id="print-personal"></div>
     </div>
+    <div class="summary-section" id="print-joint" style="display:none;">
+      <div class="summary-section-title">Second applicant</div>
+      <div class="summary-grid" id="print-joint-grid"></div>
+    </div>
     <div class="summary-section">
       <div class="summary-section-title">Employment &amp; mortgage</div>
       <div class="summary-grid" id="print-finance"></div>
@@ -504,9 +659,43 @@ function pick(group, value, el) {
 function val(id) { return (document.getElementById(id)?.value || '').trim(); }
 function fmt(n) { return n ? '£' + Number(n).toLocaleString() : '—'; }
 
+function handleOccupationSelect(sel) {
+  const custom = document.getElementById('occupationCustom');
+  const hidden = document.getElementById('occupation');
+  if (sel.value === '__custom__') {
+    custom.style.display = 'block';
+    custom.oninput = () => { hidden.value = custom.value; };
+    hidden.value = '';
+  } else {
+    custom.style.display = 'none';
+    hidden.value = sel.value;
+  }
+}
+function handleOccupationSelect2(sel) {
+  const custom = document.getElementById('occupationCustom2');
+  const hidden = document.getElementById('occupation2');
+  if (sel.value === '__custom__') {
+    custom.style.display = 'block';
+    custom.oninput = () => { hidden.value = custom.value; };
+    hidden.value = '';
+  } else {
+    custom.style.display = 'none';
+    hidden.value = sel.value;
+  }
+}
+function toggleJoint() {
+  const section = document.getElementById('joint-section');
+  const btn = document.getElementById('joint-toggle-btn');
+  const visible = section.style.display !== 'none';
+  section.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '+ Add second applicant' : '− Remove second applicant';
+  S.isJoint = !visible;
+}
+
 function collectData() {
   const first = val('firstName'), last = val('lastName');
   S.clientName = [first, last].filter(Boolean).join(' ') || 'Client';
+  S.isJoint = document.getElementById('joint-section').style.display !== 'none';
   S.data = {
     name: S.clientName, age: val('age'),
     smoker: S.fields.smoker || 'not specified',
@@ -522,10 +711,28 @@ function collectData() {
     existingCover: S.fields.existingCover || 'None',
     health: val('health'), notes: val('notes')
   };
+  if (S.isJoint) {
+    const first2 = val('firstName2'), last2 = val('lastName2');
+    S.data2 = {
+      name: [first2, last2].filter(Boolean).join(' ') || 'Second applicant',
+      age: val('age2'),
+      smoker: S.fields.smoker2 || 'not specified',
+      employment: S.fields.employment2 || 'not specified',
+      occupation: val('occupation2'),
+      income: val('income2'),
+      sickpay: S.fields.sickpay2 || 'not specified',
+      health: val('health2')
+    };
+    S.clientName = S.data.name + ' & ' + S.data2.name;
+  } else {
+    S.data2 = null;
+  }
 }
 
 function buildSystem() {
   const d = S.data;
+  const d2 = S.data2;
+  const joint = d2 ? `\nSECOND APPLICANT:\n- Name: ${d2.name}, Age: ${d2.age || 'not provided'}\n- Smoker: ${d2.smoker}, Employment: ${d2.employment} (${d2.occupation || 'not specified'}), Income: £${d2.income || 'not provided'}/yr\n- Employer sick pay: ${d2.sickpay}\n- Health: ${d2.health || 'none known'}` : '';
   return `You are a professional mortgage protection adviser at Mortgage Advice Bureau. You communicate in plain English — warm, clear, and jargon-free. You are speaking with a client during an advice meeting.
 
 CLIENT PROFILE:
@@ -536,21 +743,21 @@ CLIENT PROFILE:
 - Mortgage: £${d.mortgageBalance || 'not provided'} balance, £${d.monthlyRepayment || 'not provided'}/month, ${d.mortgageTerm || 'not provided'} yrs (${d.mortgageType})
 - Existing cover: ${d.existingCover}
 - Health: ${d.health || 'none known'}
-- Notes: ${d.notes || 'none'}
+- Notes: ${d.notes || 'none'}${joint}
 
 RECOMMENDATIONS MADE:
 ${S.recoSummaryText}
 
 YOUR ROLE:
 - Answer questions about life insurance, critical illness cover, income protection, and family income benefit
-- Personalise every answer to this client's specific circumstances
+- Personalise every answer to this client's specific circumstances${d2 ? ' — this is a joint application so consider both applicants' : ''}
 - Never quote specific premiums — these come from sourcing tools
 - Keep answers to 3–6 sentences unless asked for more detail
 - Be warm and reassuring — many clients find insurance confusing`;
 }
 
 async function callAI(messages, system) {
-  const body = { model: 'claude-sonnet-4-20250514', max_tokens: 1500, messages };
+  const body = { model: 'claude-sonnet-4-20250514', max_tokens: 4000, messages };
   if (system) body.system = system;
   const res = await fetch(PROXY_URL, {
     method: 'POST',
@@ -568,6 +775,8 @@ async function runRecommendations() {
   document.getElementById('reco-btn-row').style.display = 'none';
 
   const d = S.data;
+  const d2str = S.data2 ? `\nSECOND APPLICANT:\n- Name: ${S.data2.name}, Age: ${S.data2.age||'unknown'}, Smoker: ${S.data2.smoker}\n- Employment: ${S.data2.employment} (${S.data2.occupation||'none given'}), Income: £${S.data2.income||'unknown'}/yr\n- Employer sick pay: ${S.data2.sickpay}\n- Health: ${S.data2.health||'none known'}` : '';
+  const jointNote = S.data2 ? '\nThis is a JOINT application. Where relevant, consider both applicants in your recommendations — e.g. each may need separate life and CI policies, or a joint policy may be appropriate.' : '';
   const prompt = `You are a mortgage protection adviser at Mortgage Advice Bureau. Analyse this client and provide recommendations for all four products.
 
 CLIENT:
@@ -578,7 +787,7 @@ CLIENT:
 - Mortgage: £${d.mortgageBalance||'unknown'} balance, £${d.monthlyRepayment||'unknown'}/month, ${d.mortgageTerm||'unknown'} yrs, ${d.mortgageType}
 - Existing cover: ${d.existingCover}
 - Health: ${d.health||'none known'}
-- Notes: ${d.notes||'none'}
+- Notes: ${d.notes||'none'}${d2str}${jointNote}
 
 Respond ONLY with a valid JSON array — no markdown, no backticks, no preamble. Exact structure:
 [
@@ -591,13 +800,15 @@ Priority: high=essential, medium=strongly advisable, low=worth considering. Be s
 
   try {
     const data = await callAI([{ role: 'user', content: prompt }]);
-    let text = (data.content?.[0]?.text || '').replace(/```json|```/g, '').trim();
+    const rawText = data.content?.[0]?.text || '';
+    let text = rawText.replace(/```json|```/g, '').trim();
     S.recommendations = JSON.parse(text);
     S.recoSummaryText = S.recommendations.map(r => `${r.product} (${r.priority}): ${r.headline}`).join('\n');
     renderRecommendations();
     buildSummaryPage();
   } catch(e) {
     document.getElementById('reco-content').innerHTML = '<div class="loading-box"><p style="color:var(--red);">Could not generate recommendations. Please check your connection and try again.</p></div>';
+    console.error('Recommendation error:', e);
   }
 }
 
@@ -690,12 +901,26 @@ function chatKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault()
 
 function buildSummaryPage() {
   const d = S.data;
+  const d2 = S.data2;
   document.getElementById('print-name').textContent = S.clientName + ' — Protection Summary';
   document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+
   const personal = [['Name',d.name||'—'],['Age',d.age||'—'],['Smoker',d.smoker||'—'],['Marital status',d.marital||'—'],['Dependants',d.dependants||'—'],['Health notes',d.health||'None known']];
   document.getElementById('print-personal').innerHTML = personal.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
+
+  // Joint applicant section
+  const jointEl = document.getElementById('print-joint');
+  if (d2) {
+    jointEl.style.display = 'block';
+    const p2 = [['Name',d2.name||'—'],['Age',d2.age||'—'],['Smoker',d2.smoker||'—'],['Employment',d2.employment||'—'],['Occupation',d2.occupation||'—'],['Annual income',d2.income?fmt(d2.income):'—'],['Employer sick pay',d2.sickpay||'—'],['Health notes',d2.health||'None known']];
+    document.getElementById('print-joint-grid').innerHTML = p2.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
+  } else {
+    jointEl.style.display = 'none';
+  }
+
   const finance = [['Employment',d.employment||'—'],['Occupation',d.occupation||'—'],['Annual income',d.income?fmt(d.income):'—'],['Employer sick pay',d.sickpay||'—'],['Mortgage balance',d.mortgageBalance?fmt(d.mortgageBalance):'—'],['Monthly repayment',d.monthlyRepayment?fmt(d.monthlyRepayment):'—'],['Remaining term',d.mortgageTerm?d.mortgageTerm+' years':'—'],['Mortgage type',d.mortgageType||'—'],['Existing cover',d.existingCover||'None']];
   document.getElementById('print-finance').innerHTML = finance.map(([k,v]) => `<div class="summary-cell"><div class="summary-cell-label">${k}</div><div class="summary-cell-value">${v}</div></div>`).join('');
+
   document.getElementById('print-recos').innerHTML = S.recommendations.map(r => `
     <div class="reco-print-card ${r.priority}">
       <div class="reco-print-card-header">
