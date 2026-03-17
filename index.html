@@ -784,7 +784,8 @@ YOUR ROLE:
 - Personalise every answer to this client's specific circumstances${d2 ? ' — this is a joint application so consider both applicants' : ''}
 - Never quote specific premiums — these come from sourcing tools
 - Keep answers to 3–6 sentences unless asked for more detail
-- Be warm and reassuring — many clients find insurance confusing`;
+- Be warm and reassuring — many clients find insurance confusing
+${d.mortgageType === 'Shared Ownership' ? `\nSHARED OWNERSHIP NOTE: This client has a shared ownership mortgage. If life insurance comes up, always explain that they need TWO policies: (1) a decreasing term policy to cover the mortgage balance of £${d.mortgageBalance||'unknown'}, and (2) a level term policy to cover the difference between the property value (£${d.propertyValue||'unknown'}) and the mortgage balance — this protects their equity share in the property. The decreasing policy tracks the mortgage repayment, while the level policy remains constant to cover their ownership stake.` : ''}`;
 }
 
 async function callAI(messages, system) {
@@ -827,7 +828,13 @@ Respond ONLY with a valid JSON array — no markdown, no backticks, no preamble.
   {"product":"Income Protection","priority":"high|medium|low","recommended":true|false,"headline":"...","rationale":"...","suggested_amount":"...","suggested_term":"...","why_now":"...","what_it_covers":"...","what_happens_without":"...","key_point":"..."},
   {"product":"Family Income Benefit","priority":"high|medium|low","recommended":true|false,"headline":"...","rationale":"...","suggested_amount":"...","suggested_term":"...","why_now":"...","what_it_covers":"...","what_happens_without":"...","key_point":"..."}
 ]
-Priority: high=essential, medium=strongly advisable, low=worth considering. Be specific to this client's numbers.`;
+Priority: high=essential, medium=strongly advisable, low=worth considering. Be specific to this client's numbers.
+
+IMPORTANT — SHARED OWNERSHIP LIFE INSURANCE RULE:
+If the mortgage type is Shared Ownership, the Life Insurance recommendation MUST cover two separate needs:
+1. A DECREASING term policy to cover the outstanding mortgage balance (currently £${d.mortgageBalance||'unknown'}) over the remaining mortgage term — this decreases in line with the mortgage as it is repaid.
+2. A LEVEL term policy to cover the difference between the property value (£${d.propertyValue||'unknown'}) and the mortgage balance (£${d.mortgageBalance||'unknown'}) — this covers the client's equity/share in the property and should remain level throughout the term.
+In your suggested_amount field, specify BOTH policies clearly, e.g. "Decreasing policy of £X over Y years to cover the mortgage, plus a level policy of £Z over Y years to cover the remaining share of the property." Explain this dual-policy need clearly in your rationale.`;
 
   try {
     const data = await callAI([{ role: 'user', content: prompt }]);
